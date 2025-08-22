@@ -1,4 +1,11 @@
-[
-  {"name": "Alice", "age": 25, "job": "Designer"},
-  {"name": "Bob", "age": 28, "job": "Developer"}
-]
+{
+  "participants": [
+    "Alice",
+    "Bob",
+    "Charlie",
+    "小明",
+    "小美",
+    "王大雄",
+    "花子"
+  ]
+}
