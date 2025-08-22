@@ -1,13 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>我的個人網站</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>我的網站 · 抽獎器</title>
+  <!-- 版面與字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>歡迎來到我的個人網站</h1>
-  <ul id="data-list"></ul>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">我的網站</h1>
+      <nav class="nav">
+        <a href="#about">關於站點</a>
+        <a href="#lottery">抽獎</a>
+        <a href="#data">資料展示</a>
+      </nav>
+    </div>
+  </header>
 
+  <main class="container main">
+    <!-- Hero -->
+    <section class="hero">
+      <h2>歡迎！</h2>
+      <p>這是一個使用 GitHub Pages 建立的靜態網站，並加入了「抽獎功能」。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#lottery">前往抽獎</a>
+        <a class="btn-outline" href="#data">查看 JSON 資料</a>
+      </div>
+    </section>
+
+    <!-- 關於區 -->
+    <section id="about" class="card">
+      <h3>關於站點</h3>
+      <p id="about-text">載入中…</p>
+      <ul id="skills" class="chip-list"></ul>
+    </section>
+
+    <!-- 抽獎區 -->
+    <section id="lottery" class="card">
+      <div class="card-header">
+        <h3>抽獎器</h3>
+        <span class="muted">參與人數：<span id="participantCount">0</span></span>
+      </div>
+
+      <div class="lottery-controls">
+        <label class="control">
+          <span>一次要抽幾位</span>
+          <input id="winnerCount" type="number" min="1" value="1" />
+        </label>
+
+        <div class="btn-row">
+          <button id="drawOne" class="btn">抽 1 位</button>
+          <button id="drawMany" class="btn">抽多位</button>
+          <button id="reset" class="btn-outline">重置名單</button>
+          <button id="exportWinners" class="btn-outline">下載中獎名單</button>
+        </div>
+      </div>
+
+      <div class="roulette" aria-live="polite" id="roulette">—</div>
+
+      <h4>中獎名單</h4>
+      <ol id="winnersList" class="list"></ol>
+    </section>
+
+    <!-- JSON 展示區 -->
+    <section id="data" class="card">
+      <h3>原始資料（data.json）</h3>
+      <pre id="jsonDump" class="code-block">載入中…</pre>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> 我的網站</div>
+  </footer>
+
+  <!-- 輕量煙火（可選） -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
   <script src="main.js"></script>
 </body>
 </html>
